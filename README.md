@@ -16,4 +16,4 @@
 1. Copy the contents of BepInEx_xxx_x.x.x.x.zip into the directory that contains GettingOverIt.exe<br/>
 (Which would most likely be `C:/Program Files (x86)/Steam/steamapps/common/Getting Over It/`)
 
-2. Copy GOIModelReplacement.dll to the `.../Getting Over It/BepInEx/plugins/` directory
+2. Put GOIModelReplacement.dll in the `.../Getting Over It/BepInEx/plugins/` directory
