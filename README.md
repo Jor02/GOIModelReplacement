@@ -1,4 +1,4 @@
-![image](./GOILevelToolsBanner.png)
+![image](./GOIModelReplacementBanner.png)
 
 # `⚠️ THIS MOD IS STILL A WIP ⚠️`
 
