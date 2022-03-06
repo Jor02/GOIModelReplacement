@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GOIModelReplacement": {
+      "commandName": "Executable",
+      "executablePath": "$(SolutionDir)build.bat",
+      "commandLineArgs": "$(TargetDir)",
+      "workingDirectory": "$(SolutionDir)"
+    }
+  }
+}
