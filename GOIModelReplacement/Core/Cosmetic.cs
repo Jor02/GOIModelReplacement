@@ -15,12 +15,16 @@ namespace GOIModelReplacement.Core
 
 		private void Start()
 		{
+			Animator anim = gameObject.GetComponent<Animator>();
+
 			if (Type == CosmeticType.Body || Type == CosmeticType.Hammer)
 			{
 				foreach (Transform transform in gameObject.GetComponentsInChildren<Transform>(true))
 				{
 					GameObject gameObject = GameObject.Find(transform.name);
-					if (gameObject != null)
+
+					if ((anim != null && transform != anim.GetBoneTransform(HumanBodyBones.Hips)) || gameObject.name != "mixamorig:Hips")
+					if (gameObject != null && gameObject != transform.gameObject)
 					{
 						transform.gameObject.AddComponent<Sync>().Init(gameObject.transform, SyncRotation, SyncPosition, SyncScale);
 					}
@@ -30,7 +34,6 @@ namespace GOIModelReplacement.Core
 			{
 				case CosmeticType.Body:
 					{
-						Animator anim = gameObject.GetComponent<Animator>();
 						if (anim != null)
 						{
 							Transform ReplacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
@@ -39,9 +42,8 @@ namespace GOIModelReplacement.Core
 							if (ReplacementTransform != null)
 							{
 								GameObject PlayerHips = GameObject.Find("Player/dude/mixamorig:Hips");
-								Debug.Log(PlayerHips);
 								Vector3 lossyScale = ReplacementTransform.lossyScale;
-								ReplacementTransform.SetParent(PlayerHips.transform, false);
+								ReplacementTransform.SetParent(PlayerHips.transform, true);
 								ReplacementTransform.localPosition = Vector3.zero;
 								ReplacementTransform.localRotation = Quaternion.Euler(Vector3.zero);
 								ReplacementTransform.localScale = lossyScale;

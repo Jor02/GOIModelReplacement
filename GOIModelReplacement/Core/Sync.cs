@@ -11,11 +11,13 @@ namespace GOIModelReplacement.Core
 		private bool SyncPosition = true;
 		private bool SyncScale = true;
 
+		public Vector3 scaleMultiplier = Vector3.one;
+
 		private void LateUpdate()
 		{
 			if (SyncPosition) transform.position = target.position;
 			if (SyncRotation) transform.rotation = target.rotation;
-			if (SyncScale) transform.localScale = target.localScale;
+			if (SyncScale) transform.localScale = Vector3.Scale(target.localScale, scaleMultiplier);
 		}
 
         public void Init(Transform target, bool syncRotation, bool syncPosition, bool syncScale)
@@ -24,6 +26,8 @@ namespace GOIModelReplacement.Core
 			SyncRotation = syncRotation;
 			SyncPosition = syncPosition;
 			SyncScale = syncScale;
+
+			scaleMultiplier = transform.localScale;
         }
     }
 }
