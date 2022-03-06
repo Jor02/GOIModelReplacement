@@ -17,3 +17,6 @@
 (Which would most likely be `C:/Program Files (x86)/Steam/steamapps/common/Getting Over It/`)
 
 2. Put GOIModelReplacement.dll in the `.../Getting Over It/BepInEx/plugins/` directory
+
+## Adding models for the mod
+Put build models `.../Getting Over It/Mods/Cosmetics/`
