@@ -34,10 +34,9 @@ namespace GOIModelReplacement.Core
 			{
 				case CosmeticType.Body:
 					{
-						if (anim != null)
-						{
-							Transform ReplacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
-							if (ReplacementTransform == null) replacement = transform.Find("mixamorig:Hips");
+						Transform ReplacementTransform = null;
+						if (anim != null) ReplacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
+						if (ReplacementTransform == null) ReplacementTransform = transform.RecursiveFindChild("mixamorig:Hips");
 
 							if (ReplacementTransform != null)
 							{
