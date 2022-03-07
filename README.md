@@ -9,6 +9,11 @@
 
 <sub><sup>*Actual ease not guaranteed</sub></sup>
 
+## Planned features
+- [ ] Arm IK (for actually holding hammer)
+- [ ] Emote mod support
+- [ ] Humanoid Avatar support (Instead of only Mixamo rigs)
+
 ## Installation
 - [Get latest release here](https://github.com/Jor02/GOILevelImporter/releases/latest)
 - [Get BepInEx here here](https://github.com/BepInEx/BepInEx/releases/latest)
