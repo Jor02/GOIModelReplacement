@@ -38,15 +38,16 @@ namespace GOIModelReplacement.Core
 						if (anim != null) ReplacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
 						if (ReplacementTransform == null) ReplacementTransform = transform.RecursiveFindChild("mixamorig:Hips");
 
-							if (ReplacementTransform != null)
-							{
-								GameObject PlayerHips = GameObject.Find("Player/dude/mixamorig:Hips");
-								Vector3 lossyScale = ReplacementTransform.lossyScale;
-								ReplacementTransform.SetParent(PlayerHips.transform, true);
-								ReplacementTransform.localPosition = Vector3.zero;
-								ReplacementTransform.localRotation = Quaternion.Euler(Vector3.zero);
-								ReplacementTransform.localScale = lossyScale;
-							}
+						Debug.Log(ReplacementTransform == null);
+						if (ReplacementTransform != null)
+						{
+							GameObject PlayerHips = GameObject.Find("Player/dude/mixamorig:Hips");
+							Vector3 lossyScale = ReplacementTransform.lossyScale;
+							Vector3 localPos = PlayerHips.transform.InverseTransformPoint(PlayerHips.transform.position - new Vector3(0f, -0.3f, 0.6f) + ReplacementTransform.position);
+							ReplacementTransform.SetParent(PlayerHips.transform, true);
+							ReplacementTransform.localPosition = localPos;
+							ReplacementTransform.localRotation = Quaternion.Euler(Vector3.zero);
+							ReplacementTransform.localScale = lossyScale;
 						}
 						if (replacement)
 						{
