@@ -24,9 +24,9 @@
 2. Put GOIModelReplacement.dll in the `.../Getting Over It/BepInEx/plugins/` directory
 
 ## Adding models to the mod
-- [Get some premade models](https://github.com/Jor02/GOIModelReplacement/releases/download/0.1.0/PremadeModels.zip)
+- [Get some premade models](https://github.com/Jor02/GOIModelReplacement/releases/download/0.1.2/PremadeModels.zip)
 Put build models `.../Getting Over It/Mods/Cosmetics/`
 
 ## Creating models
-- [Latest unitypackage](https://github.com/Jor02/GOIModelReplacement/releases/download/0.1.0/ModelReplacementTools.unitypackage)
+- [Latest unitypackage](https://github.com/Jor02/GOIModelReplacement/releases/download/0.1.2/ModelReplacementTools.unitypackage)
 TODO: Add actual guide
