@@ -34,20 +34,19 @@ namespace GOIModelReplacement.Core
 			{
 				case CosmeticType.Body:
 					{
-						Transform ReplacementTransform = null;
-						if (anim != null) ReplacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
-						if (ReplacementTransform == null) ReplacementTransform = transform.RecursiveFindChild("mixamorig:Hips");
+						Transform replacementTransform = null;
+						if (anim != null) replacementTransform = anim.GetBoneTransform(HumanBodyBones.Hips);//transform.Find("mixamorig:Hips");
+						if (replacementTransform == null) replacementTransform = transform.RecursiveFindChild("mixamorig:Hips");
 
-						Debug.Log(ReplacementTransform == null);
-						if (ReplacementTransform != null)
+						if (replacementTransform != null)
 						{
-							GameObject PlayerHips = GameObject.Find("Player/dude/mixamorig:Hips");
-							Vector3 lossyScale = ReplacementTransform.lossyScale;
-							Vector3 localPos = PlayerHips.transform.InverseTransformPoint(PlayerHips.transform.position - new Vector3(0f, -0.3f, 0.6f) + ReplacementTransform.position);
-							ReplacementTransform.SetParent(PlayerHips.transform, true);
-							ReplacementTransform.localPosition = localPos;
-							ReplacementTransform.localRotation = Quaternion.Euler(Vector3.zero);
-							ReplacementTransform.localScale = lossyScale;
+							Transform PlayerHips = GameObject.Find("Player/dude/mixamorig:Hips").transform;
+							Vector3 lossyScale = replacementTransform.lossyScale;
+							Vector3 localPos = PlayerHips.transform.InverseTransformPoint(PlayerHips.parent.parent.position + replacementTransform.position);
+							replacementTransform.SetParent(PlayerHips.transform, true);
+							replacementTransform.localPosition = localPos;
+							replacementTransform.localRotation = Quaternion.Euler(Vector3.zero);
+							replacementTransform.localScale = lossyScale;
 						}
 						if (replacement)
 						{
@@ -60,7 +59,6 @@ namespace GOIModelReplacement.Core
 					}
 				case CosmeticType.Pot:
 					{
-						GameObject gameObject3 = GameObject.Find("Player/Pot");
 						transform.parent = gameObject3.transform;
 						transform.localPosition = Vector3.zero;
 						transform.localRotation = Quaternion.Euler(Vector3.zero);

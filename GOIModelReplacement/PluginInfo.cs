@@ -18,6 +18,6 @@ namespace GOIModelReplacement
     {
         public const string GUID = "com.jor02.GOIModelReplacement";
         public const string NAME = "GOI Model Replacement";
-        public const string VERSION = "0.1.1";
+        public const string VERSION = "0.1.2";
     }
 }
