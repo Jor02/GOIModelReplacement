@@ -59,9 +59,10 @@ namespace GOIModelReplacement.Core
 					}
 				case CosmeticType.Pot:
 					{
-						transform.parent = gameObject3.transform;
-						transform.localPosition = Vector3.zero;
-						transform.localRotation = Quaternion.Euler(Vector3.zero);
+						Transform pot = GameObject.Find("Player/Pot").transform;
+						Vector3 localPos = pot.InverseTransformPoint(pot.parent.position + transform.position);
+						transform.SetParent(pot, true);
+						transform.localPosition = localPos;
 						if (replacement)
 						{
 							GameObject.Find("Player/Pot/Mesh").SetActive(false);
